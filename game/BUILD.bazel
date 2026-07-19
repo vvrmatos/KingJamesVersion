@@ -1,0 +1,15 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
+
+py_library(
+    name = "questions",
+    srcs = ["questions.py"],
+    imports = ["."],
+)
+
+py_binary(
+    name = "trivia",
+    srcs = ["main.py"],
+    imports = ["."],
+    main = "main.py",
+    deps = [":questions"],
+)
